@@ -22,8 +22,8 @@ class PostFactory extends Factory
             'updated_at' => $this->faker->dateTimeBetween(2, now()),
             'created_at'=>$this->faker->dateTimeBetween('-20 days', now()),
             'level' => $this->faker->numberBetween(0,10),
-            'entreprise_id' => $this->faker->numberBetween(1,100000),
-
+            'reduction' => $this->faker->text(),
+            'level' => $this->faker->numberBetween(4,6)
 
         ];
     }
