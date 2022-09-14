@@ -13,9 +13,12 @@ class Entreprise extends Migration
      */
     public function up(){
         Schema::create('entreprises', function (Blueprint $table) {
-            $table->id('entreprise_id')->unique();
+            $table->id()->unique();
             $table->string('name')->unique();
             $table->string('email');
+            $table->date('updated_at');
+            $table->date('created_at');
+
         });
     }
 

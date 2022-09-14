@@ -13,9 +13,9 @@
                 <p> {{ count($posts) }} </p>
                 @foreach($posts as $post)
                 <p> {{ $post }}  <p>
-                    @if ({{ count($posts) }} > 0)
+                    @if ( count($posts) > 0)
                         <article>
-                            <img src="250x250" alt="img">
+                            <img src="images/exemple.jpg" alt="img" id="img_exemple">
                         </article>
                     @else
                         <p> Oups.... Il y a un petit problème, veuillez recharger la page !</p>
