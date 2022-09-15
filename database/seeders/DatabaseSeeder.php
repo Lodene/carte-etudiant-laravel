@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Entreprise;
@@ -30,43 +31,43 @@ class DatabaseSeeder extends Seeder
         
         $entreprise = Entreprise::factory(10)->create();
         
-        Post::Create([
+        $usr = Post::factory()->create([
             'entreprise_id' => $entreprise[0]->id,
         ]);
 
-        Post::Create([
+        $usr = Post::factory()->create([
             'entreprise_id' => $entreprise[1]->id,
         ]);
 
-        Post::Create([
+        $usr = Post::factory()->create([
             'entreprise_id' => $entreprise[2]->id,
         ]);
 
-        Post::Create([
+        $usr = Post::factory()->create([
             'entreprise_id' => $entreprise[3]->id,
         ]);
 
-        Post::Create([
+        $usr = Post::factory()->create([
             'entreprise_id' => $entreprise[4]->id,
         ]);
 
-        Post::Create([
+        $usr = Post::factory()->create([
             'entreprise_id' => $entreprise[5]->id,
         ]);
 
-        Post::Create([
+        $usr = Post::factory()->create([
             'entreprise_id' => $entreprise[6]->id,
         ]);
 
-        Post::Create([
+        $usr = Post::factory()->create([
             'entreprise_id' => $entreprise[7]->id,
         ]);
 
-        Post::Create([
+        $usr = Post::factory()->create([
             'entreprise_id' => $entreprise[8]->id,
         ]);
 
-        Post::Create([
+        $usr = Post::factory()->create([
             'entreprise_id' => $entreprise[9]->id,
         ]);
     }

@@ -10,7 +10,7 @@ class Post extends Model
     use HasFactory; 
 
 
-    public function post(){
+    public function entreprise(){
         return $this->belongsTo(Entreprise::class);
     }
 }

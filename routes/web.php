@@ -18,7 +18,15 @@ Route::get('/', function () {
 });
 
 Route::get('/posts', function () {
+    $post = Post::all();
+    // ddd(Post::all()->first()->entreprise->name);
     return view('posts', [
-        'posts' => Post::all()
+        'posts' => $post
+    ]);
+});
+
+Route::get('/post/{post:id}', function(Post $post){
+    return view('post', [
+        'post' => $post
     ]);
 });

@@ -17,8 +17,6 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'text' => $this->faker->text(),
-            'email' => $this->faker->unique()->safeEmail(),
             'updated_at' => $this->faker->dateTimeBetween(2, now()),
             'created_at'=>$this->faker->dateTimeBetween('-20 days', now()),
             'level' => $this->faker->numberBetween(0,10),

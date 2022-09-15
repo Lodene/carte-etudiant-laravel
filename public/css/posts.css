@@ -1,3 +1,27 @@
 #img_exemple {
-    border: 2px solid black;
+}
+
+article {
+    max-width: 300px;
+    margin-bottom: 5vh;
+}
+
+.leTout{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.titre {
+    text-align: center;
+}
+
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+a:visited {
+    color: black;
 }
