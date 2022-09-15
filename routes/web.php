@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,16 +18,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/posts', function () {
-    $post = Post::all();
-    // ddd(Post::all()->first()->entreprise->name);
-    return view('posts', [
-        'posts' => $post
-    ]);
-});
+Route::get('/posts', [PostController::class, 'index']);
 
-Route::get('/post/{post:id}', function(Post $post){
-    return view('post', [
-        'post' => $post
-    ]);
-});
+Route::get('/post/{post:id}', [PostController::class, 'post']);
