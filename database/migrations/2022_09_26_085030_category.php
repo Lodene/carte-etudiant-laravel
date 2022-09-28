@@ -4,21 +4,19 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Entreprise extends Migration
+class Category extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up(){
-        Schema::create('entreprises', function (Blueprint $table) {
-            $table->id()->unique();
-            $table->string('name')->unique();
-            $table->string('email');
-            $table->date('updated_at');
-            $table->date('created_at');
-
+    public function up()
+    {
+        Schema::create('categories', function (Blueprint $table) { 
+            $table->id('id')->unique();
+            $table->string('name');
+            $table->timestamps();
         });
     }
 
@@ -29,6 +27,6 @@ class Entreprise extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('categories');
     }
 }

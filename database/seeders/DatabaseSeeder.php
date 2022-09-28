@@ -32,104 +32,69 @@ class DatabaseSeeder extends Seeder
         
         $entreprise = Entreprise::factory(10)->create();
         
-        $faim = Category::create([
+        $faim = Category::factory()->create([
             'id' => 1,
-            'name' => 'faim'
+            'name' => 'Faim'
         ]);
 
-        $soif = Category::create([
+        $soif = Category::factory()->create([
             'id' => 2,
-            'name' => 'soif'
+            'name' => 'Soif'
         ]);
 
-        $autre = Category::create([
+        $autre = Category::factory()->create([
             'id' => 3,
             'name' => 'Evenement'
         ]);  
         
         $usr = Post::factory()->create([
             'entreprise_id' => $entreprise[0]->id,
-            'category_id' => $faim[0]
+            'category_id' => $faim['id']
         ]);
 
         $usr = Post::factory()->create([
             'entreprise_id' => $entreprise[1]->id,
-            'category_id' => $soif[0]
+            'category_id' => $soif['id']
         ]);
 
         $usr = Post::factory()->create([
             'entreprise_id' => $entreprise[2]->id,
-            'category_id' => $autre[0]
+            'category_id' => $autre['id']
         ]);
-
-        $faim = Category::create([
-            'id' => 4,
-            'name' => 'faim'
-        ]); 
-        
-        $soif = Category::create([
-            'id' => 5,
-            'name' => 'soif'
-        ]);
-
-        $autre = Category::create([
-            'id' => 6,
-            'name' => 'Evenement'
-        ]);  
 
         $usr = Post::factory()->create([
             'entreprise_id' => $entreprise[3]->id,
-            'category_id' => $faim[0]
+            'category_id' => $faim['id']
         ]);
 
         $usr = Post::factory()->create([
             'entreprise_id' => $entreprise[4]->id,
-            'category_id' => $soif[0]
+            'category_id' => $soif['id']
         ]);
 
         $usr = Post::factory()->create([
             'entreprise_id' => $entreprise[5]->id,
-            'category_id' => $autre[0]
+            'category_id' => $autre['id']
         ]);
-
-        $faim = Category::create([
-            'id' => 7,
-            'name' => 'faim'
-        ]); 
-        
-        $soif = Category::create([
-            'id' => 8,
-            'name' => 'soif'
-        ]);
-
-        $autre = Category::create([
-            'id' => 9,
-            'name' => 'Evenement'
-        ]);  
 
         $usr = Post::factory()->create([
             'entreprise_id' => $entreprise[6]->id,
-            'category_id' => $faim[0]
+            'category_id' => $faim['id']
         ]);
 
         $usr = Post::factory()->create([
             'entreprise_id' => $entreprise[7]->id,
-            'category_id' => $soif[0]
+            'category_id' => $soif['id']
         ]);
 
         $usr = Post::factory()->create([
             'entreprise_id' => $entreprise[8]->id,
-            'category_id' => $autre[0]
+            'category_id' => $autre['id']
         ]);
-
-        $autre = Category::create([
-            'id' => 10,
-            'name' => 'Evenement'
-        ]);  
 
         $usr = Post::factory()->create([
             'entreprise_id' => $entreprise[9]->id,
-            'category_id' => $autre[0]
+            'category_id' => $autre['id']
         ]);
     }
 }

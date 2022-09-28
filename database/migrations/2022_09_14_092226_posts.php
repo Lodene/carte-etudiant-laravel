@@ -21,7 +21,7 @@ class Posts extends Migration
             $table->foreignId('entreprise_id');
             $table->date('updated_at');
             $table->date('created_at');
-            $table->foreignId('categorie_id');
+            $table->foreignId('category_id');
         });
     }
 
@@ -32,6 +32,6 @@ class Posts extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('posts');
     }
 }

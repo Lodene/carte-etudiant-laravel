@@ -1,0 +1,15 @@
+#username {
+    border: 2px solid black;
+}
+
+article {
+    width: 100%;
+    height: 100vh;
+}
+
+.leTout {
+    width: 400px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
