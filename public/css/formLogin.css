@@ -129,7 +129,7 @@ display-flex, .display-flex, .display-flex-center {
   
   body {
     font-size: 14px;
-    line-height: 1.8;
+    /* line-height: 1.8; */
     color: #222;
     font-weight: 400;
     font-family: 'Montserrat';
@@ -356,4 +356,5 @@ display-flex, .display-flex, .display-flex-center {
 
 .form-group.name{
     display: flex;
+    flex-direction: row;
 }

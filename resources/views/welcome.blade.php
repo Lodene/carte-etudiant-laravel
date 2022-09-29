@@ -4,6 +4,8 @@
 @endsection
 
 @section('content')
+<?php session_start();
+        // dd($_SESSION['usr']); ?>
     <div>
         <h1>Bienvenue sur La Carte Etudiant !</h1>
         <p>

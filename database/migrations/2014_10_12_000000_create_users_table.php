@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->boolean('get_card')->default(false);
+            $table->string('grade')->default('client');
             $table->rememberToken();
             $table->timestamps();
         });

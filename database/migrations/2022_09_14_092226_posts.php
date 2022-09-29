@@ -18,9 +18,9 @@ class Posts extends Migration
             $table->text('reduction');
             $table->boolean('free')->default(false);
             $table->integer('level');
-            $table->foreignId('entreprise_id');
             $table->date('updated_at');
             $table->date('created_at');
+            $table->foreignId('entreprise_id');
             $table->foreignId('category_id');
         });
     }

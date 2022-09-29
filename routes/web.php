@@ -20,7 +20,7 @@ use App\Http\Controllers\SessionController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/posts', [PostController::class, 'index']);
 
@@ -33,3 +33,5 @@ Route::get('/deconnexion', [SessionController::class, 'destroy'])->middleware('a
 
 Route::get('/login', [SessionController::class, 'create'])->middleware();
 Route::post('/login', [SessionController::class, 'login'])->middleware();
+
+Route::get('/compte', [SessionController::class, 'compte']);

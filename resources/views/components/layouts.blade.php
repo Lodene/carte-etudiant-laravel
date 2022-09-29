@@ -20,7 +20,9 @@
         </div>
         <div class="header_gauche">
             @if (auth()->check())
-                <a href="/deconnexion" class="connexion"><h4>Se déconnecter</h4></a>
+                <a href="/compte" class="connexion"><h4>Compte</h4></a>
+                <h4 class="connexion"> / </h4>
+                <a href="/deconnexion" class="connexion bleu"><h4>Se déconnecter</h4></a>
             @else
                 <a href="/register" class="connexion"><h4>S'inscire</h4></a>
                 <h4 class="connexion"> / </h4>

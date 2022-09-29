@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SessionController extends Controller
 {
     public function destroy(){
+        // session_destroy();
         auth()->logout();
 
         return redirect('/')->with('succes', 'Goodbye !');
@@ -18,8 +20,19 @@ class SessionController extends Controller
             'password' => 'required'
         ]);
 
+       
+
         if (auth()->attempt($attribute)) {
-            session()->regenerate();
+            session_start();
+            $usr = User::where('email', $attribute['email']) -> first();
+            $_SESSION['usr'] = [
+                'nom' => $usr->first_name,
+                'prenom' => $usr-> last_name,
+                'email' => $usr->email,
+                'carte' => $usr->get_card,
+                'id' => $usr->id
+            ];
+            
             return redirect('/')->with('succes', 'Vous êtes connecté');
         } else {
             return back()
@@ -32,5 +45,12 @@ class SessionController extends Controller
 
     public function create(){
         return view('register.login');
+    }
+
+    public function compte(){
+        $usr = User::all();
+        return view('compte', [
+            'usrs' => $usr
+        ]);
     }
 }

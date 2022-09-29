@@ -13,18 +13,15 @@
                     <form method="POST" id="signup-form" class="signup-form" action="/register">
                     @csrf
                         <h2 class="form-title">Créer votre compte </h2>
-                        <div class="    ">
+                        <div class="form-group name">
                             <input type="text" class="form-input" name="last_name" id="name" placeholder="Votre Nom" value="{{ old('last_name') }}"/>
                             <input type="text" class="form-input" name="first_name" id="prenom" placeholder="Votre Prénom" value="{{ old('first_name') }}"/>
                         </div>
                         <div class="form-group">
                             <input type="email" class="form-input" name="email" id="email" placeholder="Votre Email" value="{{ old('email') }}"/>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group name">
                             <input type="password" class="form-input" name="password" id="password" placeholder="Mot de Passe"/>
-                            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
-                        </div>
-                        <div class="form-group">
                             <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeter votre Mot de Passe"/>
                         </div>
                         <div class="form-group">

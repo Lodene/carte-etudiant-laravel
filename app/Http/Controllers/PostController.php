@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use App\Models\Entreprise;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller{
@@ -21,6 +19,9 @@ class PostController extends Controller{
         if (request('category') && request('category') != null && request('category') != 4){
             $posts = $posts->where('category_id', '=', request('category'));
         } 
+
+        if (auth()->check()){
+        }
 
         return view('posts', [
             'posts' => $posts->get(),
