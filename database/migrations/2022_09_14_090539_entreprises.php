@@ -14,8 +14,7 @@ class Entreprises extends Migration
     public function up(){
         Schema::create('entreprises', function (Blueprint $table) {
             $table->id()->unique();
-            $table->string('name')->unique();
-            $table->string('email');
+            $table->foreignId('user_id')->constrained('users', 'id');
             $table->date('updated_at');
             $table->date('created_at');
 

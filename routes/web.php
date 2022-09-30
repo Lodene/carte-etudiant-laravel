@@ -5,6 +5,7 @@ use App\Models\Post;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\EntrepriseControlleur;
 
 
 /*
@@ -26,6 +27,9 @@ Route::get('/posts', [PostController::class, 'index']);
 
 Route::get('/post/{post:id}', [PostController::class, 'post']);
 
+Route::get('/entreprise/ajout/{entreprises:id}', [EntrepriseControlleur::class, 'scope'])->middleware();
+// Route::post('/entreprise/ajout/{entreprises:id}', [EntrepriseControlleur::class, 'add'])->middleware();
+
 Route::get('/register', [RegisterController::class, 'create'])->middleware();
 Route::post('/register', [RegisterController::class, 'store'])->middleware();
 
@@ -33,5 +37,8 @@ Route::get('/deconnexion', [SessionController::class, 'destroy'])->middleware('a
 
 Route::get('/login', [SessionController::class, 'create'])->middleware();
 Route::post('/login', [SessionController::class, 'login'])->middleware();
+
+Route::get('/entrepriseLogin', [SessionController::class, 'createEntreprise'])->middleware();
+Route::post('/entrepriseLogin', [SessionController::class, 'loginEntrperise'])->middleware();
 
 Route::get('/compte', [SessionController::class, 'compte']);

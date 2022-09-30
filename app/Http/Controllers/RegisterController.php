@@ -12,7 +12,9 @@ class RegisterController extends Controller{
 
     public function store(){
         // var_dump(request()->all());
-        $attributes = request()->validate([
+        $name = request()->first_name . " " . request()->last_name;
+        // dd($name);
+        $test = request()->validate([
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users,email',
@@ -20,7 +22,13 @@ class RegisterController extends Controller{
             're_password' => 'required|max:255',
         ]);
 
-        if ($attributes['re_password'] == $attributes['password']){
+        $attributes = [
+            'name' => $name,
+            'email' => $test['email'],
+            'password' => $test['password']
+        ];
+
+        if ($test['re_password'] == $attributes['password']){
             $attributes['password'] = bcrypt($attributes['password']);
             $user = User::create($attributes);
             auth()->login($user);

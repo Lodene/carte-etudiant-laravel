@@ -20,18 +20,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        User::truncate();
-        Post::truncate();
-        Entreprise::truncate(); 
+        // User::truncate();
+        // Post::truncate();
+        // Entreprise::truncate(); 
 
-        $user = User::factory(10)->create([
-            'first_name' => Str::random(10),
-            'last_name' => Str::random(10),
-        ]);
+        $user = User::factory(10)->create();
 
-        
-        $entreprise = Entreprise::factory(10)->create();
-        
         $faim = Category::factory()->create([
             'id' => 1,
             'name' => 'Faim'
@@ -46,55 +40,35 @@ class DatabaseSeeder extends Seeder
             'id' => 3,
             'name' => 'Evenement'
         ]);  
-        
-        $usr = Post::factory()->create([
-            'entreprise_id' => $entreprise[0]->id,
-            'category_id' => $faim['id']
-        ]);
 
-        $usr = Post::factory()->create([
-            'entreprise_id' => $entreprise[1]->id,
-            'category_id' => $soif['id']
-        ]);
+        $z = 1;
+        for ($i=15; $i < 25; $i++) { 
+            
+            $user = User::factory()->create([
+                'entreprise_id' => $i,
+                'grade' => 'entreprise'
+            ]);
 
-        $usr = Post::factory()->create([
-            'entreprise_id' => $entreprise[2]->id,
-            'category_id' => $autre['id']
-        ]);
+            $entreprise = Entreprise::factory()->create([
+                'id' => $z,
+                'user_id' => $user->id
+            ]);
 
-        $usr = Post::factory()->create([
-            'entreprise_id' => $entreprise[3]->id,
-            'category_id' => $faim['id']
-        ]);
-
-        $usr = Post::factory()->create([
-            'entreprise_id' => $entreprise[4]->id,
-            'category_id' => $soif['id']
-        ]);
-
-        $usr = Post::factory()->create([
-            'entreprise_id' => $entreprise[5]->id,
-            'category_id' => $autre['id']
-        ]);
-
-        $usr = Post::factory()->create([
-            'entreprise_id' => $entreprise[6]->id,
-            'category_id' => $faim['id']
-        ]);
-
-        $usr = Post::factory()->create([
-            'entreprise_id' => $entreprise[7]->id,
-            'category_id' => $soif['id']
-        ]);
-
-        $usr = Post::factory()->create([
-            'entreprise_id' => $entreprise[8]->id,
-            'category_id' => $autre['id']
-        ]);
-
-        $usr = Post::factory()->create([
-            'entreprise_id' => $entreprise[9]->id,
-            'category_id' => $autre['id']
-        ]);
+            $usr = Post::factory()->create([
+                'entreprise_id' => $entreprise->id,
+                'category_id' => $faim['id']
+            ]);
+    
+            $usr = Post::factory()->create([
+                'entreprise_id' => $entreprise->id,
+                'category_id' => $soif['id']
+            ]);
+    
+            $usr = Post::factory()->create([
+                'entreprise_id' => $entreprise->id,
+                'category_id' => $autre['id']
+            ]);
+            $z++;
+        }
     }
 }

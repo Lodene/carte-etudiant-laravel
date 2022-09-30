@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller{
     public function index(){
-        $posts = Post::latest();
+        $posts = Post::latest();    
         // $posts = DB::table('posts')->orderBy('posts.level', 'desc');
         if (request('search')){
             $posts = $posts->leftJoin('entreprises', 'entreprises.id', '=', 'posts.entreprise_id')
@@ -20,12 +21,11 @@ class PostController extends Controller{
             $posts = $posts->where('category_id', '=', request('category'));
         } 
 
-        if (auth()->check()){
-        }
-
+        $usr = User::where('grade', '=', 'entreprise');
         return view('posts', [
             'posts' => $posts->get(),
-            'categories' => $category->get()
+            'categories' => $category->get(),
+            'usr' => $usr->get()
         ]);
     }
 

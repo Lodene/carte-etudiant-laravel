@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +11,8 @@
 <body>
     <header>
         <div class="menu">
-            <h4><a href="#" class="link_menu bleu">Acheter votre carte</a></h4>
-            <h4>/</h4>
-            <h4><a href="/posts" class="offres">Voir les offres </a></h4>
+            <x-category-User>
+            </x-category-User>
         </div>
         <div class="titre">
             <h3><a href="/" class="link_titre">Ta Carte Etudiante </a></h3>

@@ -51,9 +51,11 @@
                                 <img src="images/exemple.jpg" alt="img" id="img_exemple">
                             </div>
                             <div class="titre">
-                                <h5 class="text-white">{{ $post->entreprise->name }} </h5>
+                                <h5 class="text-white">{{ $post->entreprise->user->name }} </h5>
                             </div>
+                            
                             <div>
+                                
                                 <h6>{{ $post->category->name }}</h6>
                             </div>
                             <div class="text">

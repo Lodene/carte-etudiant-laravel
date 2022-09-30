@@ -1,14 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Entreprise;
 use App\Models\User;
 use Illuminate\Http\Request;
 
 class SessionController extends Controller
 {
     public function destroy(){
-        // session_destroy();
         auth()->logout();
 
         return redirect('/')->with('succes', 'Goodbye !');
@@ -18,18 +17,16 @@ class SessionController extends Controller
         $attribute = request()->validate([
             'email' => 'required|email',
             'password' => 'required'
-        ]);
-
-       
+        ]);  
 
         if (auth()->attempt($attribute)) {
             session_start();
             $usr = User::where('email', $attribute['email']) -> first();
             $_SESSION['usr'] = [
-                'nom' => $usr->first_name,
-                'prenom' => $usr-> last_name,
+                'name' => $usr->name,
                 'email' => $usr->email,
                 'carte' => $usr->get_card,
+                'grade' => $usr->grade,
                 'id' => $usr->id
             ];
             

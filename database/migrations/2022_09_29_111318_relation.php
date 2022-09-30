@@ -15,8 +15,8 @@ class Relation extends Migration
     {
         Schema::create('relation', function (Blueprint $table) { 
             $table->id('id')->unique();
-            $table->foreign('user_id')->references('users')->on('id');
-            $table->foreign('posts_id')->references('posts')->on('id');
+            $table->foreignId('user_id')->constrained('categories', 'id');
+            $table->foreignId('posts_id')->constrained('posts', 'id');
         });
     }
 
