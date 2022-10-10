@@ -45,7 +45,7 @@
         <div class="leTout">
             @if (count($posts) != 0 )
                 @foreach($posts as $post)
-                    <a href="post/{{ $post->id }}" class="post">
+                    <a href="{{ route('post', $post->id) }}" class="post">
                         <article>
                             <div class="img">
                                 <img src="images/exemple.jpg" alt="img" id="img_exemple">

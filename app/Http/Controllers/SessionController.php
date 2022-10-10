@@ -21,15 +21,6 @@ class SessionController extends Controller
 
         if (auth()->attempt($attribute)) {
             session_start();
-            $usr = User::where('email', $attribute['email']) -> first();
-            $_SESSION['usr'] = [
-                'name' => $usr->name,
-                'email' => $usr->email,
-                'carte' => $usr->get_card,
-                'grade' => $usr->grade,
-                'id' => $usr->id
-            ];
-            
             return redirect('/')->with('succes', 'Vous êtes connecté');
         } else {
             return back()

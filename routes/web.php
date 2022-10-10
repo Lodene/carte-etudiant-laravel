@@ -25,10 +25,12 @@ Route::get('/', function () {
 
 Route::get('/posts', [PostController::class, 'index']);
 
-Route::get('/post/{post:id}', [PostController::class, 'post']);
+Route::get('/post/{post:id}', [PostController::class, 'post'])->name('post');
 
-Route::get('/entreprise/ajout/{entreprises:id}', [EntrepriseControlleur::class, 'scope'])->middleware();
-// Route::post('/entreprise/ajout/{entreprises:id}', [EntrepriseControlleur::class, 'add'])->middleware();
+Route::get('/entreprise/ajout/{id}', [EntrepriseControlleur::class, 'scope'])->name('entreprise.scope');
+Route::post('/entreprise/ajout', [EntrepriseControlleur::class, 'target'])->name('people.scope');
+
+// Route::get('/entreprise/valider/{user:id}', [EntrepriseControlleur::class, 'valider'])->name('valider.utilisateur');
 
 Route::get('/register', [RegisterController::class, 'create'])->middleware();
 Route::post('/register', [RegisterController::class, 'store'])->middleware();

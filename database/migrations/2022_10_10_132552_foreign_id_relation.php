@@ -3,9 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
 
-class Relation extends Migration
+class ForeignIdRelation extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +13,9 @@ class Relation extends Migration
      */
     public function up()
     {
-        Schema::create('relation', function (Blueprint $table) { 
-            $table->id('id')->unique();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('posts_id');
+        Schema::table('relation', function (Blueprint $table) { 
+            $table->foreignId('user_id')->references('users')->on('id')->cascadeOnDelete();
+            $table->foreignId('posts_id')->references('posts')->on('id')->cascadeOnDelete();
 
             // Schema::enableForeignKeyConstraints();
         });
@@ -30,7 +28,6 @@ class Relation extends Migration
      */
     public function down()
     {
-        // Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('relation');
+        //
     }
 }

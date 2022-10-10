@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class Posts extends Migration
 {
@@ -17,12 +18,13 @@ class Posts extends Migration
             $table->id()->unique();
             $table->text('reduction');
             $table->boolean('free')->default(false);
-            $table->integer('level');
+            $table->integer('level')->default(5);
             $table->date('updated_at');
             $table->date('created_at');
-            $table->foreignId('entreprise_id');
-            $table->foreignId('category_id');
+            $table->unsignedBigInteger('entreprises_id');
+            $table->unsignedBigInteger('category_id');
         });
+
     }
 
     /**
@@ -32,6 +34,8 @@ class Posts extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('posts');
+        
     }
 }

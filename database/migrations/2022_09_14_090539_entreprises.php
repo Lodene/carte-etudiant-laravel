@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class Entreprises extends Migration
 {
@@ -14,10 +15,11 @@ class Entreprises extends Migration
     public function up(){
         Schema::create('entreprises', function (Blueprint $table) {
             $table->id()->unique();
-            $table->foreignId('user_id')->constrained('users', 'id');
+            $table->unsignedBigInteger('user_id');
             $table->date('updated_at');
             $table->date('created_at');
 
+            Schema::enableForeignKeyConstraints();
         });
     }
 
@@ -28,6 +30,7 @@ class Entreprises extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('entreprises');
     }
 }

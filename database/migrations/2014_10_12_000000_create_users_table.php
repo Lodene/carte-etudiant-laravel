@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateUsersTable extends Migration
 {
@@ -19,11 +20,12 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->boolean('get_card')->default(false);
-            $table->string('grade')->default('client');
-            $table->foreignId('entreprise_id')->default(0);
+            $table->string('grade')->default('client');   
+            $table->unsignedBigInteger('entreprises_id')->default(0);
             $table->rememberToken();
             $table->timestamps();
-        });
+        }); 
+
     }
 
     /**
